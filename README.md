@@ -8,9 +8,20 @@ on/off an LED representative of each hour in the night.
 
 Status:
 
-Currently only supports Tk based GUI. 
+Two versions: 
 
-The ic2 driver code for the LED matrix is in development.
+Tk based GUI: LEDgrid.py
+i2c version: LEDgridDrive.py
+
+LEDgridDrive.py needs to be run as root and should be run on startup. 
+It will drive a LED matrix connected to the i2c port of the raspberry pi. 
+
+Notes: 
+
+1. LED driver version needs more testing
+2. Earth sky visibilty is not working
+3. Setting LEDs to a dim state not working (not sure how to make work)
+
 
 Objects supported inlcude:
 
@@ -38,7 +49,7 @@ driven directly by an Ardino with a wifi connection to the code on a
 seperate server.
 
 Redesigned for RaspberryPi, with local code connected to a wifi dongle 
-and an LED matrix driven by ic2 bus driver.
+and an LED matrix driven by i2c bus driver.
 
 Sky information is obtained by "screen scraping" heavens-above.com. Wish
 there was a xml service so it could be more robust. 
@@ -46,16 +57,19 @@ there was a xml service so it could be more robust.
 
 Enhancement Ideas:
 
-A possible enhancement would be to do the Sun, Moon and Planet calculations
+1. A possible enhancement would be to do the Sun, Moon and Planet calculations
 localy using the apropriate astronimcal calculations. Shouldn't be that hard,
 people have been doing those calculations for centuries! That would leave only 
 the ISS and weather data to be "screen scraped".
 
-The ic2 LED matrix could be larger to cover 12 hours for the whole "night".
+2. The i2c LED matrix could be larger to cover 12 hours for the whole "night". 
+Might be easier to use a second Backpack at a different address
 
-The Earth Sky conditions could display additional observing conditions such as 
-those found on cleardarksky.com.
+3. The Earth Sky conditions could display additional observing conditions 
+such as those found on cleardarksky.com.
 
-ic2 could also drive additional 7 segement display for 
+4. i2c could also drive additional 7 segement display for 
 traditional "clock" functionality.
 
+Combined with Above, a pushbutton could be used to display exact 
+times of Rise/Set on a 7 segment display
