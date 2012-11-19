@@ -2,10 +2,6 @@ To Do:
 
 GUI:
 
-	add cron/timer to autoupdate every day
-
-	do earth weather
-
 	remove exit and update buttons
 
 	clean up code
@@ -19,10 +15,6 @@ GUI:
 	parameterize colors
 	parameterize objects, other planets, satallites, 
 	
-	put code in git
-	
-
-Add code to drive LED matrix instead of GUI
 
 	make version two with two LED arrays, for more hours or more objects?
 

@@ -102,7 +102,8 @@ class HeavensAboveMoon:
         
         for hour_num in range( 19, 24):
             
-            # moon is out if current hour is between a rise and set or if current hour is greater than the set and the set is greater rise
+            # moon is out if current hour is between a rise and set or 
+            #  if current hour is greater than the rise hour and the rise is greater than the set hour
             rise_hr = moon_info["rise_hr"]
             set_hr = moon_info["set_hr"]
             illum_pct = moon_info["illum"]
