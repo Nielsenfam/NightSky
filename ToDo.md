@@ -2,8 +2,6 @@ To Do:
 
 GUI:
 
-	remove exit and update buttons
-
 	clean up code
 	
 	comment code
@@ -16,8 +14,9 @@ GUI:
 	parameterize objects, other planets, satallites, 
 	
 
-	make version two with two LED arrays, for more hours or more objects?
+LEDdriver:
 
+        make work with 2 LED arrays for more hours
 
 Design Box
 

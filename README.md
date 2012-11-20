@@ -19,13 +19,14 @@ It will drive a LED matrix connected to the i2c port of the raspberry pi.
 Notes: 
 
 1. LED driver version needs more testing
-2. Earth sky visibilty is not working
-3. Setting LEDs to a dim state not working (not sure how to make work)
+2. Setting LEDs to a dim state not working (not sure how to make work)
 
 
 Objects supported inlcude:
 
-Earth: Displays an indication of the cloud cover, on is clear, off is cloudy
+Earth: Displays an indication of the cloud cover, transparancy, and seeing
+   on indicates "mostly clear and at least avg transparency and avg seeing"
+   off indicates "not clear or poor transparancy or poor seeing"
 
 Sun: Indicates time of sunset/sunrise "on" is sun is out.
 

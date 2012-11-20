@@ -60,12 +60,13 @@ class CleardarkskyEarth:
                       # > 7 means less than 30% sky covered
                       # > 2 means average or better transparancy
                       # > 2 means average or better seeing
+                      # turn on when all good
                       if ( cols[1] > 7 and
                            cols[2] > 2 and
                            cols[3] > 2 ):
-                               earth_info[datestruct.tm_hour] = 'a'
-                      else:
                                earth_info[datestruct.tm_hour] = 'c'
+                      else:
+                               earth_info[datestruct.tm_hour] = 'a'
 
               # if tomorrow and before 3AM
               if (datestruct.tm_year == tomorrow.year and 
