@@ -79,9 +79,9 @@ class CleardarkskyEarth:
                       if ( cols[1] > 7 and
                            cols[2] > 2 and
                            cols[3] > 2 ):
-                               earth_info[datestruct.tm_hour] = 'a'
-                      else:
                                earth_info[datestruct.tm_hour] = 'c'
+                      else:
+                               earth_info[datestruct.tm_hour] = 'a'
         
               # if we got to 3AM tomorrow we are done
               if (datestruct.tm_year == tomorrow.year and 
