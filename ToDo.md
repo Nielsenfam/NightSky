@@ -1,28 +1,33 @@
 To Do:
+======
 
 GUI:
+----
 
-	clean up code
++ clean up code
 	
-	comment code
++ comment code
 	
-	build test stubs
++ build test stubs
+
++ better error handling
 	
-	parameterize location
-	parameterize start and end times
-	parameterize colors
-	parameterize objects, other planets, satallites, 
++ parameterize location (both cleardarksky and lat/lon/alt)
++ parameterize start and end times (7PM-2PM currently hardcoded)
++ parameterize colors (for GUI)
++ parameterize objects, other planets, satallites, 
 	
 
 LEDdriver:
+----------
 
-        make work with 2 LED arrays for more hours
++ make work with 2 LED arrays for more hours
 
-Design Box
+Next Steps:
+-----------
 
-Build Box
-Mount LEDs
-Wire LED array
-
-Build and Test
-
++ Design Frame
++ Build Frame
++ Mount LEDs
++ Wire LED array
++ Build and Test
