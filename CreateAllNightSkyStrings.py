@@ -8,6 +8,7 @@ import CreateISSInfoString
 import CreateMoonString
 import CreatePlanetsStrings
 import CreateSunString
+import CreateEarthString
 
 class CreateAllNightSkyStrings:
     
@@ -15,6 +16,7 @@ class CreateAllNightSkyStrings:
     haMoon = []
     haPlanets = []
     haSun = []
+    Earth = []
 
     def __init__(self):
         
@@ -28,13 +30,14 @@ class CreateAllNightSkyStrings:
         self.haMoon = CreateMoonString.HeavensAboveMoon( lat, lon, alt, tz )
         self.haPlanets = CreatePlanetsStrings.HeavensAbovePlanet( lat, lon, alt, tz)
         self.haSun = CreateSunString.HeavensAboveSun( lat, lon, alt, tz )
+        self.Earth = CreateEarthString.CleardarkskyEarth( )
         
     def get_all_NS_strings(self):
         
         all_NS_strings = []
         
         # earth
-        all_NS_strings.append( "X18aaaaaaaaZ")
+        all_NS_strings.append( self.Earth.create_string() )
         
         # sun
         all_NS_strings.append( self.haSun.create_string() )
@@ -68,8 +71,8 @@ class CreateAllNightSkyStrings:
 
 # for i, aNightSkyString in enumerate(all_NS_strings):      
             
-#    NS_object_string = aNightSkyString
-#    print "i, string", i, NS_object_string
+#   NS_object_string = aNightSkyString
+#   print "i, string", i, NS_object_string
 
 
         

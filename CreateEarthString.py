@@ -53,8 +53,8 @@ class CleardarkskyEarth:
                   datestruct.tm_mday == now.day ):
 
                   if ( datestruct.tm_hour > 18 ):   
-                      print "todays hour, cloud, transp, seeing: ", \
-                             datestruct.tm_hour, cols[1], cols[2], cols[3]
+                      # print "todays hour, cloud, transp, seeing: ", \
+                      #        datestruct.tm_hour, cols[1], cols[2], cols[3]
 
                       # determine value for hour
                       # > 7 means less than 30% sky covered
@@ -72,8 +72,8 @@ class CleardarkskyEarth:
                   datestruct.tm_mon == tomorrow.month and
                   datestruct.tm_mday == tomorrow.day ): 
                   if ( datestruct.tm_hour < 3):   
-                      print "tomorrows hour, cloud, transp, seeing: ", \
-                             datestruct.tm_hour, cols[1], cols[2], cols[3]
+                      # print "tomorrows hour, cloud, transp, seeing: ", \
+                      #        datestruct.tm_hour, cols[1], cols[2], cols[3]
 
                       if ( cols[1] > 7 and
                            cols[2] > 2 and
@@ -95,7 +95,7 @@ class CleardarkskyEarth:
     def create_string(self):
                                                               
         earth_info = self.get_earth_info()
-        print earth_info
+        # print earth_info
             
         str_list = []
         str_list.append("X18")
@@ -110,12 +110,12 @@ class CleardarkskyEarth:
                     
         return ''.join(str_list)
         
-print "starting main"
+# print "starting main"
 
-clrdrksky = CleardarkskyEarth() 
+# clrdrksky = CleardarkskyEarth() 
 
-earth_mess_string = CleardarkskyEarth.create_string(clrdrksky)
+# earth_mess_string = CleardarkskyEarth.create_string(clrdrksky)
 
-print "message string =", earth_mess_string
+# print "message string =", earth_mess_string
     
 
