@@ -79,12 +79,13 @@ alt = 100
 tz = 'US/Central'
 
 # time of clock start and end in military time
-clock_start_hr = 17
+clock_start_hr = 19
 clock_end_hr = 03
 
-# dictonary for rise and set times
+# dictonary for rise, set times and row string
 set_tm_d = {}
 rise_tm_d = {}
+row_string_d = {}
 
 # use time of 4PM today for all calculations so that it always gets next rise and set times for this evening
 
@@ -163,26 +164,31 @@ for object in ("sun","moon","venus","mars","jupiter","saturn"):
     row_string = "X11"
     rise_tm = rise_tm_d[ object ]
     set_tm = set_tm_d[ object ]
+    print object, rise_tm, set_tm
     for hr in range( clock_start_hr,24):
         LED_status = "none"
         clocktm = datetime.datetime(now.year,now.month,now.day)+ datetime.timedelta(hours=hr)
-        print object, hr, clocktm, rise_tm, set_tm, clocktm
         LED_status = calc_status( rise_tm, set_tm, clocktm )
         # print LED_status
         if (LED_status == "on"):
-            string = string.append("c")
+            row_string = row_string + "c"
         else:
-            row_string = row_string.append("a")
-  
+            row_string = row_string + "a"
+
     for hr in range( 0, clock_end_hr):
         LED_status = "none"
-        clocktm = datetime.datetime(now.year,now.month,now.day)+ datetime.timedelta(hours=hr)
-        print object, hr, clocktm, rise_tm, set_tm, clocktm
+        clocktm = datetime.datetime(now.year,now.month,now.day+1)+ datetime.timedelta(hours=hr)
         LED_status = calc_status( rise_tm, set_tm, clocktm )
         # print LED_status
         if (LED_status == "on"):
-            row_string = row_string.append("c")
+            row_string = row_string + "c"
         else:
-            row_string = row_string.append("a")
+            row_string = row_string + "a"
 
+    row_string = row_string + "Z"
     print row_string
+    row_string_d[ object ] = row_string
+
+for obj in row_string_d:
+    print obj, row_string_d[ obj ]
+    
