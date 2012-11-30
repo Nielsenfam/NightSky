@@ -33,7 +33,7 @@ class Adafruit_I2C :
         print "I2C: Wrote 0x%02X to register 0x%02X" % (value, reg)
     except IOError, err:
       print "Error accessing 0x%02X: Check your I2C address" % self.address
-      return -1
+      raise IOError
 
   def writeList(self, reg, list):
     "Writes an array of bytes using I2C format"
@@ -44,7 +44,7 @@ class Adafruit_I2C :
       self.bus.write_i2c_block_data(self.address, reg, list)
     except IOError, err:
       print "Error accessing 0x%02X: Check your I2C address" % self.address
-      return -1
+      raise IOError
 
   def readList(self, reg, length):
     "Read a list of bytes from the I2C device"
@@ -57,7 +57,7 @@ class Adafruit_I2C :
       return results
     except IOError, err:
       print "Error accessing 09x%02X: Check your I2C address" % self.address
-      return -1
+      raise IOError
 
   def readU8(self, reg):
     "Read an unsigned byte from the I2C device"
@@ -68,7 +68,7 @@ class Adafruit_I2C :
       return result
     except IOError, err:
       print "Error accessing 0x%02X: Check your I2C address" % self.address
-      return -1
+      raise IOError
 
   def readS8(self, reg):
     "Reads a signed byte from the I2C device"
@@ -82,7 +82,7 @@ class Adafruit_I2C :
         return result
     except IOError, err:
       print "Error accessing 0x%02X: Check your I2C address" % self.address
-      return -1
+      raise IOError
 
   def readU16(self, reg):
     "Reads an unsigned 16-bit value from the I2C device"
@@ -94,7 +94,7 @@ class Adafruit_I2C :
       return result
     except IOError, err:
       print "Error accessing 0x%02X: Check your I2C address" % self.address
-      return -1
+      raise IOError
 
   def readS16(self, reg):
     "Reads a signed 16-bit value from the I2C device"
@@ -108,4 +108,4 @@ class Adafruit_I2C :
       return result
     except IOError, err:
       print "Error accessing 0x%02X: Check your I2C address" % self.address
-      return -1
+      raise IOError

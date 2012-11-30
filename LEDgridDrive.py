@@ -8,7 +8,11 @@ from Adafruit_8x8 import EightByEight
 
 import CreateAllNightSkyStrings
 
-grid = EightByEight(address=0x70)
+try:
+   grid = EightByEight(address=0x70)
+except IOError:
+   print "LED Grid not connected, exiting"
+   exit()
 
 def flash(r,c,cnt,t):
    if ( cnt*2 > t ):
