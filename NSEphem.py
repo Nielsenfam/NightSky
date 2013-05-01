@@ -2,6 +2,9 @@ import ephem
 import datetime
 import pytz
 
+import CreateEarthString
+import CreateISSInfoString
+
 
 def calc_status( rise_tm, set_tm, clocktm ):
 
@@ -127,12 +130,6 @@ class CreateAllNightSkyStrings:
         jupiter.compute(here)
         saturn.compute(here)
 
-        # bogus date/time for earth and ISS
-        rise_tm_d[ "earth" ] = datetime.datetime(1900,1,1)
-        set_tm_d[ "earth" ] = datetime.datetime(2100,1,1)
-        rise_tm_d[ "ISS" ] = datetime.datetime(1900,1,1)
-        set_tm_d[ "ISS" ] = datetime.datetime(2100,1,1)    
-
         sun_r = ephem.localtime(here.next_rising(sun))
         sun_s = ephem.localtime(here.next_setting(sun))
         rise_tm_d[ "sun" ] = sun_r
@@ -173,47 +170,60 @@ class CreateAllNightSkyStrings:
 
         for object in ("earth","sun","moon","ISS","venus","mars","jupiter","saturn"):
 
-            row_string = "X11"
-            rise_tm = rise_tm_d[ object ]
-            set_tm = set_tm_d[ object ]
-            # print object, rise_tm, set_tm
-            for hr in range( self.clock_start_hr,24):
-                LED_status = "none"
-                clocktm = datetime.datetime(now.year,now.month,now.day)+ datetime.timedelta(hours=hr)
-                # print "object, hr, clocktm: ", object, hr, clocktm
-                LED_status = calc_status( rise_tm, set_tm, clocktm )
-                # print LED_status
-                if (LED_status == "on"):
-                    row_string = row_string + "c"
-                else:
-                    row_string = row_string + "a"
+            if ( object == "earth" ):
+                clrdrksky = CreateEarthString.CleardarkskyEarth() 
+                row_string = CreateEarthString.CleardarkskyEarth.create_string(clrdrksky)
+                row_string_d[ object ] = row_string
+                all_NS_strings.append( row_string ) 
+            else:
+                if (object == "ISS" ):
 
-            for hr in range( 0, self.clock_end_hr):
-                LED_status = "none"
-                clocktm = datetime.datetime(now.year,now.month,now.day) + datetime.timedelta(days=1,hours=hr)
-                # print "object, hr, clocktm: ", object, hr, clocktm
-                LED_status = calc_status( rise_tm, set_tm, clocktm )
-                # print LED_status
-                if (LED_status == "on"):
-                    row_string = row_string + "c"
-                else:
-                    row_string = row_string + "a"
+                    ha = CreateISSInfoString.EphemISS(self.lat,self.lon,self.alt,self.tz)
+                    row_string = CreateISSInfoString.EphemISS.create_string(ha)
+                    row_string_d[ object ] = row_string
+                    all_NS_strings.append( row_string )
+                else:    
+                    row_string = "X11"
+                    rise_tm = rise_tm_d[ object ]
+                    set_tm = set_tm_d[ object ]
+                    # print object, rise_tm, set_tm
+                    for hr in range( self.clock_start_hr,24):
+                        LED_status = "none"
+                        clocktm = datetime.datetime(now.year,now.month,now.day)+ datetime.timedelta(hours=hr)
+                        # print "object, hr, clocktm: ", object, hr, clocktm
+                        LED_status = calc_status( rise_tm, set_tm, clocktm )
+                        # print LED_status
+                        if (LED_status == "on"):
+                            row_string = row_string + "c"
+                        else:
+                            row_string = row_string + "a"
 
-            row_string = row_string + "Z"
-            # print row_string
-            row_string_d[ object ] = row_string
-            all_NS_strings.append( row_string )
+                    for hr in range( 0, self.clock_end_hr):
+                        LED_status = "none"
+                        clocktm = datetime.datetime(now.year,now.month,now.day) + datetime.timedelta(days=1,hours=hr)
+                        # print "object, hr, clocktm: ", object, hr, clocktm
+                        LED_status = calc_status( rise_tm, set_tm, clocktm )
+                        # print LED_status
+                        if (LED_status == "on"):
+                            row_string = row_string + "c"
+                        else:
+                            row_string = row_string + "a"
+
+                    row_string = row_string + "Z"
+                    # print row_string
+                    row_string_d[ object ] = row_string
+                    all_NS_strings.append( row_string )
 
         return all_NS_strings
 
-all_NS_objects = CreateAllNightSkyStrings()
+# all_NS_objects = CreateAllNightSkyStrings()
     
-all_NS_strings = all_NS_objects.get_all_NS_strings()
+# all_NS_strings = all_NS_objects.get_all_NS_strings()
 
-for i, aNightSkyString in enumerate(all_NS_strings):      
+# for i, aNightSkyString in enumerate(all_NS_strings):      
 
-    NS_object_string = aNightSkyString
-    print "i, string", i, NS_object_string
+#    NS_object_string = aNightSkyString
+#    print "i, string", i, NS_object_string
 
 
 

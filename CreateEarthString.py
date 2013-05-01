@@ -74,7 +74,7 @@ class CleardarkskyEarth:
                   datestruct.tm_mday == tomorrow.day ): 
                   if ( datestruct.tm_hour < 3):   
                       # print "tomorrows hour, cloud, transp, seeing: ", \
-                      #        datestruct.tm_hour, cols[1], cols[2], cols[3]
+                      #      datestruct.tm_hour, cols[1], cols[2], cols[3]
 
                       if ( cols[1] > 7 and
                            cols[2] > 2 and

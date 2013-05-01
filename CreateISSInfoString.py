@@ -1,14 +1,17 @@
 
-import sys
-import datetime
+# import sys
 import urllib2
+import ephem
+import datetime
+import pytz
+
 
 '''
 Created on Apr 5, 2012
 
 @author: tnielsen
 '''
-class HeavensAboveISS:
+class EphemISS:
     """Scrapes data about the ISS from http://heavens-above.com"""
     
     lat = 0
@@ -25,70 +28,62 @@ class HeavensAboveISS:
         self.tz  = tz  
     
     def get_passes(self):
-        
-        """This gets a web page with predictable output from www.heavens-above.com and parses it for all upcoming ISS passes"""        
-                                    
-        today = datetime.datetime.today()
 
-        year = today.year
+
         passes_dict = []
-        
-        # Get the html page from www.heavens-above.com
-        url = "http://www.heavens-above.com/PassSummary.aspx?showAll=t&satid=25544&lat=%f&lng=%f&alt=%0.0f&tz=%s" % (self.lat, self.lon, self.alt, self.tz)
-        
-        #debug
-        # print url
+
+        # use time of 4PM today for all calculations so that it always gets next rise and set times for this evening
+
+        mytz = pytz.timezone(self.tz)
+        eptz = pytz.timezone('utc')
+
+        now = datetime.date.today()
+        afternoon = mytz.localize( datetime.datetime(now.year,now.month,now.day)+ datetime.timedelta(hours=16))
+        eptafternoon = afternoon.astimezone(eptz)
+        # print "eptafternoon", eptafternoon
+
+        # setup current location
+        here = ephem.Observer()
+        here.lon = str(self.lon)
+        here.lat = str(self.lat)
+        here.elev = self.alt
+        here.date = eptafternoon
+        # print here
+
+        # need to do lookup from NASA website:
+        #    http://spaceflight.nasa.gov/realdata/sightings/SSapplications/Post/JavaSSOP/orbit/ISS/SVPOST.html
+
+        url = "http://spaceflight.nasa.gov/realdata/sightings/SSapplications/Post/JavaSSOP/orbit/ISS/SVPOST.html"
         
         req = urllib2.Request(url)
         response = urllib2.urlopen(req)
         data = response.read()
-    
-        # Get just the <table> with the data in it from the html
+
+        table = data.split("TWO LINE MEAN ELEMENT SET")[1]
+        line1 = table.splitlines()[3]
+        line2 = table.splitlines()[4]
+        # print "line 1:", line1
+        # print "line 2:", line2
         
-        table = data.split(r'<table id=')[1]
-        table = table.split(r'</table>')[0]
-        
-        
-        # Break out each row in the table, skip the first two (just contains metadata)
-        passes = table.split('<tr class=')[3:]
-        
-        # print passes
-        
-        # Go through each row    
-        for i, apass in enumerate(passes):      
-            
-            # split the row into cells
-            details = apass.split('<td')
-                          
-            # parse the data out into variables
-        
-            date          = details[1][-15:-9].strip()
-            begin_time    = details[2][1:9].strip()        
-            begin_alt     = details[3][16:18].strip()      
-            begin_az      = details[4][1:4].strip()
-            max_time      = details[5][1:9].strip()
-            max_alt       = details[6][16:18].strip()
-            max_az        = details[7][1:4].strip()
-            end_time      = details[8][1:9].strip()
-            end_alt       = details[9][16:18].strip()
-            end_az        = details[10][1:4].strip()
-                                                  
-            # further parse the date
-            day   = date[0:2]
-            month = date[3:]
-            
-            #debug      
-            # print i, date, month, day, begin_time, begin_alt, begin_az, max_time, max_alt, max_az, end_time, end_alt, end_az
-        
-            # Find the beginning and ending dates and turn them into datetime objects
-            begin_datetime  = datetime.datetime.strptime("%d-%s-%s %s" % (year, month, day, begin_time), "%Y-%b-%d %H:%M:%S")
-            end_datetime    = datetime.datetime.strptime("%d-%s-%s %s" % (year, month, day, end_time),   "%Y-%b-%d %H:%M:%S")
-                                        
-            #debug      
-            # print i, begin_datetime, end_datetime
+        iss = ephem.readtle('ISS', \
+                            line1, \
+                            line2)
+
+
+        # get next 5 passes, there would never be more than 5 passes after 4PM
+        for apass in range(0,5):
+            iss.compute(here)
+
+            iss_np = here.next_pass(iss)
+            iss_r = ephem.localtime(iss_np[0])
+            iss_s = ephem.localtime(iss_np[4])
+            # print "pass n: iss rise, set:", apass, iss_r, iss_s
+
         
             # Store the data in a list      
-            passes_dict.append({"begin_time": begin_datetime, "end_time": end_datetime})
+            passes_dict.append({"begin_time": iss_r, "end_time": iss_s})
+
+            here.date = iss_np[4]
         
         # Return all the data     
         return passes_dict  
@@ -158,23 +153,23 @@ class HeavensAboveISS:
                     
         return ''.join(str_list)
         
-#print "starting main"
+# print "starting main"
 
-#ha = HeavensAboveISS(46.4186,-93.5153, 100, "CST")
+# ha = EphemISS(46.4186,-93.5153, 100, "US/Central")
           
-#print( "get today's passes")    
-#todays_passes = HeavensAboveISS.get_todays_pass(ha)
+# print( "get today's passes")    
+# todays_passes = EphemISS.get_todays_pass(ha)
 
-#print "today's passes:"
-#for apass in todays_passes:
+# print "today's passes:"
+# for apass in todays_passes:
 #    this_pass = apass["begin_time"]
 #    print "month/day/hour/min", this_pass.month,this_pass.day,this_pass.hour,this_pass.minute
     
-#print "create message string"
+# print "create message string"
 
-#ISS_mess_string = HeavensAboveISS.create_string(ha)
+# ISS_mess_string = EphemISS.create_string(ha)
 
-#print "message string =", ISS_mess_string
+# print "message string =", ISS_mess_string
     
 
         

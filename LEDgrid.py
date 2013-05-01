@@ -7,7 +7,6 @@ import sys
 from Tkinter import *
 from functools import partial
 
-# import CreateAllNightSkyStrings
 import NSEphem
 
 class LEDGrid:
@@ -61,7 +60,6 @@ class LEDGrid:
         
         self.create_left_labels()
         
-        # self.All_NS_obj = CreateAllNightSkyStrings.CreateAllNightSkyStrings()
         self.All_NS_obj = NSEphem.CreateAllNightSkyStrings()
 
         #exit = Button(self.top_frame, text='Exit', \
