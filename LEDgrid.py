@@ -1,18 +1,22 @@
 #!/usr/bin/python
 
 import os
+import sys
 
 
 from Tkinter import *
 from functools import partial
 
-import CreateAllNightSkyStrings
+# import CreateAllNightSkyStrings
+import NSEphem
 
 class LEDGrid:
     
     def __init__(self, top):
 
-	__dir__ = os.path.dirname(os.path.abspath(__file__))
+        file = sys.argv[0]
+        __dir__ = os.path.dirname(file)
+        # __dir__ = os.path.dirname(os.path.abspath(__file__))
         self.LED_red_on_photo = PhotoImage(file=os.path.join(__dir__,'LED-red-on.gif'))
         self.LED_yellow_on_photo = PhotoImage(file=os.path.join(__dir__,'LED-yellow-on.gif'))
         self.LED_blue_on_photo = PhotoImage(file=os.path.join(__dir__,'LED-blue-on.gif'))
@@ -29,14 +33,14 @@ class LEDGrid:
         self.Moon_photo = PhotoImage(file=os.path.join(__dir__,'moon.gif'))
         self.ISS_photo = PhotoImage(file=os.path.join(__dir__,'ISS.gif'))
         self.Venus_photo = PhotoImage(file=os.path.join(__dir__,'venus.gif'))
-	self.Mars_photo = PhotoImage(file=os.path.join(__dir__,'mars.gif'))
+        self.Mars_photo = PhotoImage(file=os.path.join(__dir__,'mars.gif'))
         self.Jupiter_photo = PhotoImage(file=os.path.join(__dir__,'jupiter.gif'))
         self.Saturn_photo = PhotoImage(file=os.path.join(__dir__,'saturn.gif'))
         self.Seven_photo = PhotoImage(file=os.path.join(__dir__,'Seven.gif'))
         self.Eight_photo = PhotoImage(file=os.path.join(__dir__,'Eight.gif'))
         self.Nine_photo = PhotoImage(file=os.path.join(__dir__,'Nine.gif'))
         self.Ten_photo = PhotoImage(file=os.path.join(__dir__,'Ten.gif'))
-	self.Eleven_photo = PhotoImage(file=os.path.join(__dir__,'Eleven.gif'))
+        self.Eleven_photo = PhotoImage(file=os.path.join(__dir__,'Eleven.gif'))
         self.Twelve_photo = PhotoImage(file=os.path.join(__dir__,'Twelve.gif'))
         self.One_photo = PhotoImage(file=os.path.join(__dir__,'One.gif'))
         self.Two_photo = PhotoImage(file=os.path.join(__dir__,'Two.gif'))
@@ -57,7 +61,8 @@ class LEDGrid:
         
         self.create_left_labels()
         
-        self.All_NS_obj = CreateAllNightSkyStrings.CreateAllNightSkyStrings()
+        # self.All_NS_obj = CreateAllNightSkyStrings.CreateAllNightSkyStrings()
+        self.All_NS_obj = NSEphem.CreateAllNightSkyStrings()
 
         #exit = Button(self.top_frame, text='Exit', \
         #     command=self.top.quit).grid(row=10,column=0, columnspan=5)
