@@ -6,7 +6,7 @@ import datetime
 
 from Adafruit_8x8 import EightByEight
 
-import CreateAllNightSkyStrings
+import NSEphem
 
 try:
    grid = EightByEight(address=0x70)
@@ -35,7 +35,7 @@ while (True):
 
       if ((now.hour == 8 and now.minute < 5) or (day_done == -1)):
          print "getting new strings"
-         All_NS_obj = CreateAllNightSkyStrings.CreateAllNightSkyStrings()
+         All_NS_obj = NSEphem.CreateAllNightSkyStrings()
          all_NS_strings = All_NS_obj.get_all_NS_strings()
          day_done = now.day
 
