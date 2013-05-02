@@ -1,5 +1,5 @@
-Project Idea: Quick View Night Sky Summary Display
-==================================================
+Project: Easy to View Night Sky Summary Display "Clock"
+=======================================================
 
 Name: NightSkyOrb
 -----------------
