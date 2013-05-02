@@ -3,7 +3,7 @@
 case "$1" in
   start)
     echo "Starting Night Sky"
-    /home/pi/bin/LEDgridDrive.py &
+    /home/pi/NightSky/LEDgridDrive.py &
     ;;
   stop)
     echo "Stopping Night Sky"
