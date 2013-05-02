@@ -81,7 +81,7 @@ class LEDGrid:
             
             
             #print "row, string", row, NS_object_string
-            print NS_object_string
+            #print NS_object_string
             
 
             
@@ -342,7 +342,7 @@ class LEDGrid:
 
     def cb_handler(self, square_number):
 
-        print "cb_handler update data"
+        #print "cb_handler update data"
         all_NS_strings = self.All_NS_obj.get_all_NS_strings()
 
         for i, aNightSkyString in enumerate(all_NS_strings):      
@@ -350,7 +350,7 @@ class LEDGrid:
             NS_object_string = aNightSkyString
             row = i + 1
             #print "row, string", row, NS_object_string
-            print NS_object_string
+            #print NS_object_string
             self.update_LED_row(row, NS_object_string)
             
     def update_LED_row(self, row, r_str):
@@ -418,7 +418,7 @@ class LEDGrid:
             NS_object_string = aNightSkyString
             row = i + 1
             #print "row, string", row, NS_object_string
-            print NS_object_string
+            #print NS_object_string
             self.update_LED_row(row, NS_object_string)
 
 

@@ -216,14 +216,14 @@ class CreateAllNightSkyStrings:
 
         return all_NS_strings
 
-all_NS_objects = CreateAllNightSkyStrings()
+##all_NS_objects = CreateAllNightSkyStrings()
     
-all_NS_strings = all_NS_objects.get_all_NS_strings()
-
-for i, aNightSkyString in enumerate(all_NS_strings):      
-
-   NS_object_string = aNightSkyString
-   print "i, string", i, NS_object_string
+##all_NS_strings = all_NS_objects.get_all_NS_strings()
+##
+##for i, aNightSkyString in enumerate(all_NS_strings):      
+##
+##   NS_object_string = aNightSkyString
+##   print "i, string", i, NS_object_string
 
 
 

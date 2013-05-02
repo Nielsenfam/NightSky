@@ -78,7 +78,7 @@ class EphemISS:
             iss_np = here.next_pass(iss)
             iss_r = ephem.localtime(iss_np[0])
             iss_s = ephem.localtime(iss_np[4])
-            print "pass n: iss rise, set:", apass, iss_r, iss_s
+            # print "pass n: iss rise, set:", apass, iss_r, iss_s
 
         
             # Store the data in a list      
