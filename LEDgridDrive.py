@@ -34,7 +34,7 @@ while (True):
       # print "day, hour, minute", now.day, now.hour, now.minute
 
       if ((now.hour == 8 and now.minute < 5) or (day_done == -1)):
-         print "getting new strings"
+         # print "getting new strings"
          All_NS_obj = NSEphem.CreateAllNightSkyStrings()
          all_NS_strings = All_NS_obj.get_all_NS_strings()
          day_done = now.day
