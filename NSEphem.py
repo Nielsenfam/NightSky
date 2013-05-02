@@ -4,7 +4,7 @@ import pytz
 
 import CreateEarthString
 import CreateISSInfoString
-
+import params
 
 def calc_status( rise_tm, set_tm, clocktm ):
 
@@ -78,14 +78,14 @@ class CreateAllNightSkyStrings:
     def __init__(self):
        
         # local inforamtion to be parameterized
-        self.lat = 46.4186
-        self.lon = -93.5153
-        self.alt = 100
-        self.tz = 'US/Central'
+        self.lat = params.lat
+        self.lon = params.lon
+        self.alt = params.alt
+        self.tz = params.tz
 
         # time of clock start and end in military time
-        self.clock_start_hr = 19
-        self.clock_end_hr = 03
+        self.clock_start_hr = params.start_hr
+        self.clock_end_hr = params.end_hr
 
     def get_all_NS_strings(self):
 
@@ -216,14 +216,14 @@ class CreateAllNightSkyStrings:
 
         return all_NS_strings
 
-# all_NS_objects = CreateAllNightSkyStrings()
+all_NS_objects = CreateAllNightSkyStrings()
     
-# all_NS_strings = all_NS_objects.get_all_NS_strings()
+all_NS_strings = all_NS_objects.get_all_NS_strings()
 
-# for i, aNightSkyString in enumerate(all_NS_strings):      
+for i, aNightSkyString in enumerate(all_NS_strings):      
 
-#    NS_object_string = aNightSkyString
-#    print "i, string", i, NS_object_string
+   NS_object_string = aNightSkyString
+   print "i, string", i, NS_object_string
 
 
 

@@ -4,6 +4,7 @@ import urllib2
 import ephem
 import datetime
 import pytz
+import params
 
 
 '''
@@ -22,10 +23,10 @@ class EphemISS:
     def __init__(self, lat, lon, alt, tz):
         """Set the position and altitude information to values"""    
     
-        self.lat = lat    
-        self.lon = lon    
-        self.alt = alt    
-        self.tz  = tz  
+        self.lat = params.lat    
+        self.lon = params.lon    
+        self.alt = params.alt    
+        self.tz  = params.tz  
     
     def get_passes(self):
 
@@ -50,15 +51,15 @@ class EphemISS:
         here.date = eptafternoon
         # print here
 
-        # need to do lookup from NASA website:
-        #    http://spaceflight.nasa.gov/realdata/sightings/SSapplications/Post/JavaSSOP/orbit/ISS/SVPOST.html
-
-        url = "http://spaceflight.nasa.gov/realdata/sightings/SSapplications/Post/JavaSSOP/orbit/ISS/SVPOST.html"
+        # do lookup from NASA website:
+       
+        url = params.nasa_url
         
         req = urllib2.Request(url)
         response = urllib2.urlopen(req)
         data = response.read()
 
+        # look for TWO LINE MEAN ELEMENT SET in file
         table = data.split("TWO LINE MEAN ELEMENT SET")[1]
         line1 = table.splitlines()[3]
         line2 = table.splitlines()[4]
@@ -77,7 +78,7 @@ class EphemISS:
             iss_np = here.next_pass(iss)
             iss_r = ephem.localtime(iss_np[0])
             iss_s = ephem.localtime(iss_np[4])
-            # print "pass n: iss rise, set:", apass, iss_r, iss_s
+            print "pass n: iss rise, set:", apass, iss_r, iss_s
 
         
             # Store the data in a list      
@@ -118,13 +119,14 @@ class EphemISS:
         str_list = []
         str_list.append("X48")
         
-        for hour_num in range( 19, 27):
+        for hour_num in range( params.start_hr, params.end_hr+24):
             
             string_set = 0   
             for apass in todays_passes:
                 this_pass = apass["begin_time"]
                 this_pass_min = this_pass.minute
-                
+
+                # if the hour is less than 8 AM, it is for tomorrow morning
                 if (this_pass.hour > 8):
                     this_pass_hr = this_pass.hour
                 else:
@@ -153,23 +155,23 @@ class EphemISS:
                     
         return ''.join(str_list)
         
-# print "starting main"
-
-# ha = EphemISS(46.4186,-93.5153, 100, "US/Central")
-          
-# print( "get today's passes")    
-# todays_passes = EphemISS.get_todays_pass(ha)
-
-# print "today's passes:"
-# for apass in todays_passes:
-#    this_pass = apass["begin_time"]
-#    print "month/day/hour/min", this_pass.month,this_pass.day,this_pass.hour,this_pass.minute
-    
-# print "create message string"
-
-# ISS_mess_string = EphemISS.create_string(ha)
-
-# print "message string =", ISS_mess_string
+##print "starting main"
+##
+##ha = EphemISS(params.lat,params.lon, params.alt, params.tz)
+##          
+##print( "get today's passes")    
+##todays_passes = EphemISS.get_todays_pass(ha)
+##
+##print "today's passes:"
+##for apass in todays_passes:
+##   this_pass = apass["begin_time"]
+##   print "month/day/hour/min", this_pass.month,this_pass.day,this_pass.hour,this_pass.minute
+##    
+##print "create message string"
+##
+##ISS_mess_string = EphemISS.create_string(ha)
+##
+##print "message string =", ISS_mess_string
     
 
         

@@ -3,6 +3,8 @@ import datetime
 import time
 import urllib2
 
+import params
+
 '''
 Created on Nov 15, 2012
 
@@ -23,7 +25,7 @@ class CleardarkskyEarth:
         earth_info = {}
                                     
         # Get the html page from www.cleardarksky.com
-        url  = "http://www.cleardarksky.com/txtc/LngLkCCMNcsp.txt"
+        url  = params.clear_dark_sky_url
         
         # Get the data in text version
 
@@ -52,7 +54,7 @@ class CleardarkskyEarth:
                   datestruct.tm_mon == now.month and
                   datestruct.tm_mday == now.day ):
 
-                  if ( datestruct.tm_hour > 18 ):   
+                  if ( datestruct.tm_hour > (params.start_hr-1) ):   
                       # print "todays hour, cloud, transp, seeing: ", \
                       #        datestruct.tm_hour, cols[1], cols[2], cols[3]
 
@@ -61,9 +63,9 @@ class CleardarkskyEarth:
                       # > 2 means average or better transparancy
                       # > 2 means average or better seeing
                       # turn on when all good
-                      if ( cols[1] > 7 and
-                           cols[2] > 2 and
-                           cols[3] > 2 ):
+                      if ( cols[1] > params.cloud_min and
+                           cols[2] > params.transparancy_min and
+                           cols[3] > params.seeing_min ):
                                earth_info[datestruct.tm_hour] = 'c'
                       else:
                                earth_info[datestruct.tm_hour] = 'a'
@@ -72,13 +74,13 @@ class CleardarkskyEarth:
               if (datestruct.tm_year == tomorrow.year and 
                   datestruct.tm_mon == tomorrow.month and
                   datestruct.tm_mday == tomorrow.day ): 
-                  if ( datestruct.tm_hour < 3):   
+                  if ( datestruct.tm_hour < params.end_hr):   
                       # print "tomorrows hour, cloud, transp, seeing: ", \
                       #      datestruct.tm_hour, cols[1], cols[2], cols[3]
 
-                      if ( cols[1] > 7 and
-                           cols[2] > 2 and
-                           cols[3] > 2 ):
+                      if ( cols[1] > params.cloud_min and
+                           cols[2] > params.transparancy_min and
+                           cols[3] > params.seeing_min ):
                                earth_info[datestruct.tm_hour] = 'c'
                       else:
                                earth_info[datestruct.tm_hour] = 'a'
@@ -87,7 +89,7 @@ class CleardarkskyEarth:
               if (datestruct.tm_year == tomorrow.year and 
                   datestruct.tm_mon == tomorrow.month and
                   datestruct.tm_mday == tomorrow.day ): 
-                  if ( datestruct.tm_hour == 3):   
+                  if ( datestruct.tm_hour == params.end_hr):   
                       break
 
         # Return all the data     
@@ -101,10 +103,10 @@ class CleardarkskyEarth:
         str_list = []
         str_list.append("X18")
 
-        for hr in range(19,24):
+        for hr in range(params.start_hr,24):
            str_list.append(earth_info[hr])
 
-        for hr in range(0,3):
+        for hr in range(0,params.end_hr):
            str_list.append(earth_info[hr])
 
         str_list.append('Z')

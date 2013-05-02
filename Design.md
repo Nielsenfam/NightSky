@@ -8,7 +8,7 @@ Queries server each day to get status of sun rise/set, moon rise/set, planets vi
 
 Do as a "grid" of 8 x 8 LEDs:
 
-- For each body show visible TOD: 7,8,9,10,11,12,1,2
+- For each body show visible Time Of Day: 7,8,9,10,11,12,1,2
 
 - Off = not visible, dim = rising/setting, bright = in sky
 	
@@ -22,7 +22,7 @@ Do as a "grid" of 8 x 8 LEDs:
 8. Saturn: Bright = In Sky, above 20 degrees, Dim = 0-20 degrees, Off = not visible
 
 
-Serial Protocol:
+Message String:
 ----------------
 Originally designed to communicate to Arduino, not really needed now
 
@@ -63,7 +63,7 @@ LED display:
 
 Now using Adafruit LED backpack
  		
-Put individual LEDs into a picture frame?
+Intend to put individual LEDs into a frame similar to:
 
 http://www.flickr.com/photos/spikenzie/3674197080/in/set-72157603968192071/	
  		
@@ -80,10 +80,6 @@ with LEDS could color code by object:
 + Jupiter: Orange
 + Saturn: Yellow
 	
-
-Original Sketch in ppt, convert to another format
--------------------------------------------------
-
 A row of LEDS for each object, and then a label on the top or side of the object for hours?
 	
 Time is on the X axis. 
@@ -94,28 +90,3 @@ Use IKEA picture frame
 LEDs in http://www.spikenzielabs.com/SpikenzieLabs/8x8.html 
 
 
-Older Version:
---------------
-
-Notify
-
-- Off = nothing today, or nothing more today (till 8AM)
-- On - Dim White - something tonight
-- On - Slow Flashing Dim White (on 15 sec, off 5 sec) - in 1-3 hours
-- On - Fast Bright White flashing - N quick 2 sec on/off flashes then off 15 seconds, repeats, N*10 minutes
-- On - Bright White No Flashing - overhead
-
-Clear Sky Forecast
-
-Planets Visible
-
-White = Moon, brightness = phase
-Red = Mars brlight visible before midnight, dim visiible after midnight
-Blue = Venus
-Yellow = Saturn
-Orange = Jupiter
-
-Sky 
-
-Blue On No Clouds, Good Transparancy
-Blue Off = Cloudy, Poor Transparancy
