@@ -1,0 +1,13 @@
+
+[Desktop Entry]
+Name=Night Sky Orb
+Comment=Pi Store
+Exec=/home/pi/NightSky/LEDgrid.py
+Icon=/home/pi/NightSky/NSOrbRB.png
+Terminal=false
+MultipleArgs=false
+Type=Application
+Categories=Application;Other;
+StartupNotify=true
+
+
