@@ -132,4 +132,8 @@ Setup Desktop Icon
 Setup to autostart
 ------------------
 
-    # sudo cp nightsky.sh /etc/init.d
+    # sudo vi /etc/rc.local
+
+add this to file right before the Print My IP address comment
+
+    /home/pi/NightSky/nightsky.sh start
