@@ -3,6 +3,7 @@
 case "$1" in
   start)
     echo "Starting Night Sky"
+    sleep 10
     /home/pi/NightSky/LEDgridDrive.py &
     ;;
   stop)
