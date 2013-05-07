@@ -104,13 +104,49 @@ difference()
    for ( ix = [0 : led_col_count - 1 ] )
    {
       translate( [ 
-                   led_hole_pattern_offset+ix*led_hole_spacing,  
-                   led_hole_pattern_offset-
-                       (object_hole_size+object_grid_seperation),
+                   led_hole_pattern_offset+ix*led_hole_spacing - 10,  
+                   led_hole_pattern_offset-object_grid_seperation,
                    panel_thickness/2] )
-         cube(size=[object_hole_size,
-                    object_hole_size,
-                    panel_thickness+2], center=true);
+           
+                   rotate(a=[180,0,0])
+                   {
+                      if( ix == 0 )
+                         linear_extrude( file = "seven.dxf", 
+                                height = panel_thickness+2,
+                                center=true);
+                      if( ix == 1 )
+                         linear_extrude( file = "eight.dxf",
+                                height = panel_thickness+2,
+                                center=true);
+                      if( ix == 2 )
+                         linear_extrude( file = "nine.dxf",
+                                height = panel_thickness+2,
+                                center=true);
+                      if( ix == 3 )
+                         linear_extrude( file = "ten.dxf",
+                                height = panel_thickness+2,
+                                center=true);
+                      if( ix == 4 )
+                         linear_extrude( file = "eleven.dxf",
+                                height = panel_thickness+2,
+                                center=true);
+                      if( ix == 5 )
+                         linear_extrude( file = "twelve.dxf",
+                                height = panel_thickness+2,
+                                center=true);
+                      if( ix == 6 )
+                         linear_extrude( file = "one.dxf",
+                                height = panel_thickness+2,
+                                center=true);
+                      if( ix == 7 )
+                         linear_extrude( file = "two.dxf",
+                                height = panel_thickness+2,
+                                center=true);
+                      if( ix == 7 )
+                         linear_extrude( file = "three.dxf",
+                                height = panel_thickness+2,
+                                center=true);
+                   }
       
    }
 }
