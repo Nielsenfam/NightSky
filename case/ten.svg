@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="70.866142"
+   height="70.866142"
+   id="svg3037"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="ten.dxf">
+  <defs
+     id="defs3039" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="5.6"
+     inkscape:cx="37.313714"
+     inkscape:cy="36.540408"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     units="mm"
+     inkscape:window-width="1028"
+     inkscape:window-height="755"
+     inkscape:window-x="730"
+     inkscape:window-y="252"
+     inkscape:window-maximized="0" />
+  <metadata
+     id="metadata3042">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-981.49605)">
+    <g
+       transform="scale(1.0331005,0.96796003)"
+       style="font-size:44.49382019px;font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:URW Chancery L;-inkscape-font-specification:URW Chancery L Bold Italic"
+       id="text3049" />
+    <g
+       transform="scale(1.0011913,0.99881008)"
+       style="font-size:42.80288696px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:URW Chancery L;-inkscape-font-specification:Sans"
+       id="text3094" />
+    <g
+       transform="scale(1.0020673,0.99793697)"
+       style="font-size:41.60171127px;font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:URW Chancery L;-inkscape-font-specification:Sans Bold"
+       id="text3139">
+      <path
+         d="m 18.563984,1031.1674 1.310454,0 1.310454,0 2.267293,-0.021 2.267294,-0.021 2.392098,0.021 2.392099,0.021 0.852835,0 0.852835,0 0.49922,-0.5617 0.499221,-0.5616 -2.314095,-0.1821 -1.970881,-0.2755 -0.790433,-0.4524 -0.291212,-0.7957 0.0676,-0.7956 0.223611,-0.9516 0.395216,-1.7577 0.769632,-3.5673 2.126887,-9.168 1.284453,-5.143 -0.707229,0.3744 -0.707229,0.3744 -2.719711,1.4457 -1.565265,0.7592 -1.617267,0.728 -2.459701,1.1025 0.624026,0.312 0.624026,0.312 1.21685,-0.4316 1.029642,-0.4004 0.624025,-0.2497 0.624026,-0.2496 0.410817,-0.1611 0.754031,-0.2549 -1.976081,8.5075 -1.976081,8.5076 -0.551224,1.5913 -1.23765,0.4056 -2.147688,0.2548 -1.180449,0.1612 -0.603225,0.5616 -0.603225,0.5617"
+         id="path3144"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="ccccccccccccccccccccccccccccccccccccccccccc" />
+      <path
+         d="m 49.243296,1007.2048 -4.560587,1.4249 -3.842959,3.7337 -2.480501,5.793 -1.014042,6.4795 1.227251,5.0962 3.598547,1.7265 4.992205,-1.5705 3.744154,-4.3786 2.059284,-5.6994 0.811234,-5.9491 -1.144048,-4.9817 -3.390538,-1.6745 m -2.038484,1.7472 2.178889,1.6017 0.774833,4.597 -0.603226,5.455 -1.601665,5.3614 -1.773273,2.9277 -2.054085,1.0245 -2.267292,-1.6017 -0.894438,-4.0977 0.499221,-4.6698 1.123246,-4.9818 2.012483,-4.2122 2.605307,-1.4041"
+         id="path3146"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="cccccccccccccccccccccccccc" />
+    </g>
+  </g>
+</svg>

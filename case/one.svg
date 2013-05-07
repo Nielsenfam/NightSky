@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="70.866142"
+   height="70.866142"
+   id="svg3037"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="twelve.svg">
+  <defs
+     id="defs3039" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="5.6"
+     inkscape:cx="37.313714"
+     inkscape:cy="36.540408"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     units="mm"
+     inkscape:window-width="1028"
+     inkscape:window-height="755"
+     inkscape:window-x="748"
+     inkscape:window-y="218"
+     inkscape:window-maximized="0" />
+  <metadata
+     id="metadata3042">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-981.49605)">
+    <g
+       transform="scale(1.0331005,0.96796003)"
+       style="font-size:44.49382019px;font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:URW Chancery L;-inkscape-font-specification:URW Chancery L Bold Italic"
+       id="text3049" />
+    <g
+       transform="scale(1.0011913,0.99881008)"
+       style="font-size:42.80288696px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:URW Chancery L;-inkscape-font-specification:Sans"
+       id="text3094" />
+    <g
+       transform="scale(1.0020673,0.99793697)"
+       style="font-size:41.60171127px;font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:URW Chancery L;-inkscape-font-specification:Sans Bold"
+       id="text3139" />
+    <g
+       transform="scale(0.99672605,1.0032847)"
+       style="font-size:42.62141418px;font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:URW Chancery L;-inkscape-font-specification:Sans Italic"
+       id="text3186" />
+    <g
+       transform="scale(0.95157311,1.0508914)"
+       style="font-size:39.76499939px;font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:URW Chancery L;-inkscape-font-specification:Sans Italic"
+       id="text3233">
+      <path
+         d="m 29.306762,978.80743 1.252597,0 1.252598,0 2.167192,-0.0199 2.167193,-0.0199 2.286487,0.0199 2.286488,0.0199 0.815182,0 0.815183,0 0.47718,-0.53683 0.47718,-0.53682 -2.211928,-0.17399 -1.883867,-0.26343 -0.755535,-0.43244 -0.278355,-0.76051 0.06462,-0.7605 0.213737,-0.90963 0.377768,-1.68007 0.735652,-3.40985 2.032985,-8.76321 1.227745,-4.91595 -0.676005,0.35788 -0.676005,0.35789 -2.599636,1.38184 -1.496159,0.72571 -1.545865,0.69589 -2.351105,1.05377 0.596475,0.29823 0.596475,0.29824 1.163126,-0.41256 0.984184,-0.38274 0.596475,-0.23859 0.596475,-0.23859 0.392679,-0.15408 0.720741,-0.24357 -1.888837,8.13194 -1.888838,8.13195 -0.526887,1.52101 -1.183008,0.38771 -2.052868,0.24356 -1.128332,0.15409 -0.576592,0.53682 -0.576593,0.53683"
+         id="path3238"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="ccccccccccccccccccccccccccccccccccccccccccc" />
+    </g>
+  </g>
+</svg>
