@@ -20,10 +20,10 @@ box_width = 160;
 box_depth = 40;
 
 // box has walls this thick in mm
-wall_thickness=5;
+wall_thickness=3;
 
 // box has corner braces this size in mm
-corner_size = 15;
+corner_size = 12;
 
 // make lip on decorative frame of front of panel
 lip_width = 10;
@@ -37,6 +37,13 @@ back_panel_thickness = 3;
 
 // corner braces are recessed from the back
 corner_recess=back_panel_thickness + 2;
+
+// size of object holes
+object_hole_size = 10;
+
+// seperation between object holes and grid holes
+object_grid_seperation = 5;
+
 
 //
 // LED parameters
@@ -63,7 +70,9 @@ led_hole_spacing=15;
 
 // LED grid hole pattern is offset from the sides this far:
 led_hole_pattern_offset = 
-    (box_width-led_hole_spacing*(led_row_count-1))/2;
+    ( ( box_width
+        - ( led_hole_spacing*(led_row_count-1) ) ) / 2 )
+    + ( ( object_hole_size + object_grid_seperation ) / 2 );
 
 //
 // End of parameters

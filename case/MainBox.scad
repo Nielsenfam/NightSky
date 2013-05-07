@@ -72,6 +72,8 @@ translate( [box_width-corner_size, (box_width-corner_size)/2, 0])
 difference()
 {
    cube(size=[box_width,box_width,panel_thickness]);
+   
+   // loop over x and y axis to create grid of holes
    for ( ix = [0 : led_row_count - 1 ] )
    {
       for ( iy = [0 : led_col_count -1 ] )
@@ -84,6 +86,32 @@ difference()
                   r2=led_hole_back_dia/2, 
                   $fn=led_resolution, center=false );
       }
+   }
+   
+   // square holes for objects picts
+   for ( iy = [0 : led_row_count - 1 ] )
+   {
+      translate( [ led_hole_pattern_offset-
+                       (object_hole_size+object_grid_seperation), 
+                   led_hole_pattern_offset+iy*led_hole_spacing, 
+                   panel_thickness/2] )
+         cube(size=[object_hole_size,
+                    object_hole_size,
+                    panel_thickness+2], center=true);
+   }
+
+   // place hour numbers across top
+   for ( ix = [0 : led_col_count - 1 ] )
+   {
+      translate( [ 
+                   led_hole_pattern_offset+ix*led_hole_spacing,  
+                   led_hole_pattern_offset-
+                       (object_hole_size+object_grid_seperation),
+                   panel_thickness/2] )
+         cube(size=[object_hole_size,
+                    object_hole_size,
+                    panel_thickness+2], center=true);
+      
    }
 }
 
