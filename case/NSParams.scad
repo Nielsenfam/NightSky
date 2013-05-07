@@ -11,12 +11,11 @@
 
 // Square box of this size in mm
 
-// test: box_width = 70;
+// test: box_width = 90;
 box_width = 160;
 
 // box is this deep in mm
 
-// test: box_depth = 20;
 box_depth = 40;
 
 // box has walls this thick in mm
