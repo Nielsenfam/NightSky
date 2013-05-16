@@ -93,6 +93,12 @@ module _stand() {
         translate([3.6, (69.95-3.6), 0])
           cylinder(r=1,h=thickness*4);
 
+        translate([3.6, 3.6, 0])
+          cylinder(r=1,h=thickness*4);
+
+       translate([width-3.5, 3.6, 2])
+          cylinder(r=1,h=thickness*4); 
+
 	}
 
 

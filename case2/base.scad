@@ -73,7 +73,7 @@ peg_or = 3.6;
 peg_ir = peg_or-0.7;
 peg_cap = 5;
 peg_pilot_ir = 1;
-peg_pilot = 1;
+peg_pilot = 6;
 
 module peg()
 {
@@ -125,9 +125,9 @@ difference()
     base();
     //%base_volume();
     pegs();
-    // translate([-peg_or,69,base_z+2.5])
-    //   rotate([110,0,0])
-    //      %led_matrix();
+     translate([-peg_or,69,base_z+2.5])
+       rotate([110,0,0])
+          %led_matrix();
   }
   pegs_negative();
 }
