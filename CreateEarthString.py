@@ -34,6 +34,14 @@ class CleardarkskyEarth:
         data = response.read()
         data = data.split("blocks = (\n")
         data_table = data[1].splitlines()
+
+
+
+        # print "cloud_min", params.cloud_min
+        # print "trans_min", params.transparancy_min
+        # print "seeing_min", params.seeing_min
+
+
  
         # current date
         now = datetime.date.today()
@@ -63,9 +71,10 @@ class CleardarkskyEarth:
                       # > 2 means average or better transparancy
                       # > 2 means average or better seeing
                       # turn on when all good
-                      if ( cols[1] > params.cloud_min and
-                           cols[2] > params.transparancy_min and
-                           cols[3] > params.seeing_min ):
+ 
+                      if ( int(cols[1]) >= params.cloud_min and
+                           int(cols[2]) >= params.transparancy_min and
+                           int(cols[3]) >= params.seeing_min ):
                                earth_info[datestruct.tm_hour] = 'c'
                       else:
                                earth_info[datestruct.tm_hour] = 'a'
@@ -78,9 +87,9 @@ class CleardarkskyEarth:
                       # print "tomorrows hour, cloud, transp, seeing: ", \
                       #      datestruct.tm_hour, cols[1], cols[2], cols[3]
 
-                      if ( cols[1] > params.cloud_min and
-                           cols[2] > params.transparancy_min and
-                           cols[3] > params.seeing_min ):
+                      if ( int(cols[1]) >= params.cloud_min and
+                           int(cols[2]) >= params.transparancy_min and
+                           int(cols[3]) >= params.seeing_min ):
                                earth_info[datestruct.tm_hour] = 'c'
                       else:
                                earth_info[datestruct.tm_hour] = 'a'
